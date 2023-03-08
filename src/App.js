@@ -93,7 +93,7 @@ export const StyledImg = styled.img`
 export const StyledDefaultImg = styled.img`
   box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
   background-color: var(--accent);
-  width: 200px;
+  width: 500px;
   @media (min-width: 900px) {
     width: 250px;
   }
