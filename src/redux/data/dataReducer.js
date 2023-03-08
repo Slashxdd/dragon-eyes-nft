@@ -8,6 +8,11 @@ const initialState = {
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "UPDATE_APP_LOADING":
+      return {
+        ...state,
+        loading: action.payload,
+      };
     case "CHECK_DATA_REQUEST":
       return {
         ...state,

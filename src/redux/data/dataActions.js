@@ -21,9 +21,17 @@ const fetchDataFailed = (payload) => {
   };
 };
 
+const updateIsAppLoading = (payload) => {
+  return {
+    type: "UPDATE_APP_LOADING",
+    payload: payload,
+  };
+};
+
 export const fetchData = () => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
+    dispatch(updateIsAppLoading(true));
     try {
       let totalSupply = await store
         .getState()
@@ -40,8 +48,10 @@ export const fetchData = () => {
           // cost,
         })
       );
+      dispatch(updateIsAppLoading(false));
     } catch (err) {
       console.log(err);
+      dispatch(updateIsAppLoading(false));
       dispatch(fetchDataFailed("Could not load data from contract."));
     }
   };
